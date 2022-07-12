@@ -7,8 +7,11 @@ public class CarController : MonoBehaviour
 {
     [SerializeField] private float currentSpeed;
     [SerializeField] private float maxSpeed;
-    [SerializeField] private float maxRPM;
     [SerializeField] private float acceleratingFactor;
+    [SerializeField] private int rpmFactor;
+
+    private float _maxRpm;
+    private bool isControlActive;
 
     public float MaxSpeed
     {
@@ -18,11 +21,19 @@ public class CarController : MonoBehaviour
         }
     }
     public float MaxRPM{
-        get{
-            return maxRPM;
+        get
+        {
+            if(_maxRpm == 0) 
+            _maxRpm = maxSpeed / gearController.GetLastGearCircumference();
+
+            return _maxRpm;
         }
     }
-    private bool isControlActive;
+    public float RpmFactor{
+        get{
+            return rpmFactor;
+        }
+    }
 
     public GearController gearController;
     private IInputGetter movementInputGetter;
@@ -32,8 +43,8 @@ public class CarController : MonoBehaviour
     private void Start()
     {
         GameController.Instance.OnControlToggled += OnControlToggled;
-        UIController.Instance.SetMaxRPMOnSpeedMeter(maxRPM);
         gearController = new GearController(this);
+        UIController.Instance.SetMaxRPMOnSpeedMeter(MaxRPM);
     }
     private void OnDestroy()
     {
@@ -48,13 +59,13 @@ public class CarController : MonoBehaviour
 
         currentSpeed += ((movementInputGetter.IsAccelerating == true
         ? acceleratingFactor
-        : -(acceleratingFactor * 50))
+        : -(acceleratingFactor * 3))
         * Time.deltaTime);
 
         currentSpeed = Mathf.Clamp(currentSpeed, 0, maxSpeed);
         Vector3 movement = Vector3.forward * currentSpeed * Time.deltaTime;
 
-        gearController.SetGear(currentSpeed);
+        gearController.SetGear(currentSpeed,movementInputGetter.IsAccelerating);
 
         transform.Translate(movement);
     }

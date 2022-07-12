@@ -9,8 +9,9 @@ public class GameController : MonoBehaviour
 {
     public static GameController Instance;
 
-    public event Action<bool> OnControlToggled;
 
+
+    public event Action<bool> OnControlToggled;
     private void Awake()
     {
         if (Instance == null)
@@ -40,5 +41,10 @@ public class GameController : MonoBehaviour
     public void ToggleControls(bool isActive)
     {
         OnControlToggled(isActive);
+    }
+    public void FinishTheGame()
+    {
+        UIController.Instance.ShowNotification("FINISH!");
+        ToggleControls(false);
     }
 }
