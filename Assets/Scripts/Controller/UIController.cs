@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -8,8 +9,10 @@ public class UIController : MonoBehaviour
 {
     public static UIController Instance;
 
+
     [SerializeField] private Text notificationText;
     [SerializeField] private SpeedMeter speedMeter;
+    [SerializeField] private Text stopwatch;
 
     private void Awake() => Initialize();
 
@@ -29,9 +32,14 @@ public class UIController : MonoBehaviour
     {
         speedMeter.SetMaxRPM(rpmMax);
     }
-
-    public void SetNeedleAngle(float currentRPM,int currentGearIndex,float currentSpeed)
+    public void ShowElapsedTime(float elapsedTime)
     {
-        speedMeter.SetNeedleAngle(currentRPM,currentGearIndex,currentSpeed);
+       stopwatch.text = String.Format("{0:0.00}", elapsedTime);
+    }
+
+
+    public void SetNeedleAngle(float currentRPM, int currentGearIndex, float currentSpeed)
+    {
+        speedMeter.SetNeedleAngle(currentRPM, currentGearIndex, currentSpeed);
     }
 }

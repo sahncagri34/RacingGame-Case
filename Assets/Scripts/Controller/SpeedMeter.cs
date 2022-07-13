@@ -9,7 +9,6 @@ public class SpeedMeter : MonoBehaviour
     [SerializeField] private Transform needleTransform;
     [SerializeField] private Text currentSpeedText;
     [SerializeField] private Text currentGearText;
-    [SerializeField] private Text currentRPMText;
     private const int MAX_SPEED_ANGLE = -20;
     private const int ZERO_SPEED_ANGLE = 210;
     private float rpmMax;
@@ -25,12 +24,11 @@ public class SpeedMeter : MonoBehaviour
         needleTransform.eulerAngles = new Vector3(0,0,angle);
         currentSpeedText.text = String.Format("{0:0}", speed);
         currentGearText.text ="GEAR:"+ currentGearIndex.ToString();
-        currentRPMText.text ="RPM:"+ String.Format("{0:0.0}", currentRPM);
     }
     private float GetSpeedRotation(float RPM)
     {
         float totalAngleSize = ZERO_SPEED_ANGLE - MAX_SPEED_ANGLE;
-        float rpmNormalized = RPM / rpmMax;
+        float rpmNormalized = RPM / (rpmMax);
         return ZERO_SPEED_ANGLE - (rpmNormalized * totalAngleSize);
     }
 }
