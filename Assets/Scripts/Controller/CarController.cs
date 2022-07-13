@@ -11,6 +11,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private float rotateWheelSpeed;
     [SerializeField] private Transform[] wheels;
     [SerializeField] private GearController gearController;
+    [SerializeField] private AudioController audioController;
 
     private float currentSpeed;
     private float _maxRpm;
@@ -81,10 +82,11 @@ public class CarController : MonoBehaviour
     {
         GameController.Instance.OnControlToggled += OnControlToggled;
 
-        gearController = new GearController(this);
+        gearController = new GearController(this,audioController);
         timer = new Timer();
 
         UIController.Instance.SetMaxRPMOnSpeedMeter(MaxRPM);
+        audioController.SetMaxRPM(MaxRPM);
     }
 
 
