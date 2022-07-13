@@ -46,7 +46,7 @@ public class GearController
         audioController.SetAudioPitch(currentRPM);
 
         var kmh =  currentSpeed * 60 * 60 / 1000;
-        UIController.Instance.SetNeedleAngle(currentRPM,currentGearIndex,kmh);
+        GameController.Instance.SetNeedleAngle(currentRPM,currentGearIndex,kmh);
     }
     private float CalculateRPM(float roadPerSec,bool IsAccelerating)
     {

@@ -10,8 +10,10 @@ public class GameController : MonoBehaviour
     public static GameController Instance;
 
 
+    [SerializeField] UIController uiController;
 
     public event Action<bool> OnControlToggled;
+
     private void Awake()
     {
         if (Instance == null)
@@ -29,13 +31,13 @@ public class GameController : MonoBehaviour
     {
         for (int i = 5; i >= 0; i--)
         {
-            UIController.Instance.ShowNotification(i.ToString());
+            uiController.ShowNotification(i.ToString());
             await Task.Delay(1000);
         }
 
-        UIController.Instance.ShowNotification("GO!");
+        uiController.ShowNotification("GO!");
         await Task.Delay(300);
-        UIController.Instance.ShowNotification("");
+        uiController.ShowNotification("");
     }
 
     public void ToggleControls(bool isActive)
@@ -44,7 +46,22 @@ public class GameController : MonoBehaviour
     }
     public void FinishTheGame()
     {
-        UIController.Instance.ShowNotification("FINISH!");
+        uiController.ShowNotification("FINISH!");
         ToggleControls(false);
+    }
+
+    public void ShowElapsedTime(float elapsedTime)
+    {
+        uiController.ShowElapsedTime(elapsedTime);
+    }
+
+    public void SetMaxRPMOnSpeedMeter(float maxRPM)
+    {
+        uiController.SetMaxRPMOnSpeedMeter(maxRPM);
+    }
+
+    public void SetNeedleAngle(float currentRPM, int currentGearIndex, float kmh)
+    {
+        uiController.SetNeedleAngle(currentRPM, currentGearIndex, kmh);
     }
 }

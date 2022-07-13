@@ -9,6 +9,6 @@ public class Timer
     public void Run()
     {
         ElapsedTime += Time.deltaTime;
-        UIController.Instance.ShowElapsedTime(ElapsedTime);
+        GameController.Instance.ShowElapsedTime(ElapsedTime);
     }
 }

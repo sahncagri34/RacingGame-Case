@@ -85,7 +85,7 @@ public class CarController : MonoBehaviour
         gearController = new GearController(this,audioController);
         timer = new Timer();
 
-        UIController.Instance.SetMaxRPMOnSpeedMeter(MaxRPM);
+        GameController.Instance.SetMaxRPMOnSpeedMeter(MaxRPM);
         audioController.SetMaxRPM(MaxRPM);
     }
 

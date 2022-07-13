@@ -7,21 +7,11 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    public static UIController Instance;
 
 
     [SerializeField] private Text notificationText;
     [SerializeField] private SpeedMeter speedMeter;
     [SerializeField] private Text stopwatch;
-
-    private void Awake() => Initialize();
-
-    private void Initialize()
-    {
-        if (Instance == null)
-            Instance = this;
-
-    }
 
     public void ShowNotification(string data)
     {
