@@ -96,7 +96,7 @@ public class CarController : MonoBehaviour
     }
     private void RotateWheels()
     {
-        var angle = (currentSpeed % 360) * rotateWheelSpeed;
+        var angle = (currentSpeed) * rotateWheelSpeed;
         foreach (var item in wheels)
         {
             item.Rotate(new Vector3(angle, 0, 0), Space.Self);

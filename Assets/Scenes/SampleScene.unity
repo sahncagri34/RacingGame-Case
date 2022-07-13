@@ -5568,7 +5568,7 @@ MonoBehaviour:
   maxSpeed: 100
   acceleratingFactor: 10
   rpmFactor: 2
-  rotateWheelSpeed: 5
+  rotateWheelSpeed: 0.03
   wheels:
   - {fileID: 5517153144928570388}
   - {fileID: 8436320254042401316}
