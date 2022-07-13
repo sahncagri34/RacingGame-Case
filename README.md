@@ -1,7 +1,7 @@
 # RacingGame-Case
 Car Simulator Case
 
-Bitmiş Proje GamePlay => https://drive.google.com/file/d/14NmYBVAmtFWfHenCehA4gi7XtYVbHSgp/view?usp=sharing
+Final GamePlay => https://drive.google.com/file/d/14NmYBVAmtFWfHenCehA4gi7XtYVbHSgp/view?usp=sharing
 
 Gaz butonuna basınca ileri gidiyor, frene basınca da yavaşlıyor. 
 Sağ sol yok. Sadece gaz ve fren var. Dümdüz gidiyor. 
