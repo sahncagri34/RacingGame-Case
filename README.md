@@ -1,6 +1,8 @@
 # RacingGame-Case
 Car Simulator Case
 
+Bitmiş Proje GamePlay => https://drive.google.com/file/d/14NmYBVAmtFWfHenCehA4gi7XtYVbHSgp/view?usp=sharing
+
 Gaz butonuna basınca ileri gidiyor, frene basınca da yavaşlıyor. 
 Sağ sol yok. Sadece gaz ve fren var. Dümdüz gidiyor. 
 Hiçbir yere çarpmayacak, o yüzden yerçekimi, fizik veya collision olmayacak.
@@ -18,3 +20,4 @@ Start öncesi 5'den geriye saymalı ve sonrasında başla yazısı gelmeli
 Araç başla yazısıyla birlikte hareket edebilir olmalı
 Finish çizgisini geçtiğimizde yarış bitmeli.
 Ekranda yarış süresini gösteren bir kronometre olacak, başla yazısından itibaren çalışmaya başlayacak,Finish'i geçince duracak.
+
